@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiniPay</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>MiniPay Wallet</h1>
+    <input type="text" id="username" placeholder="Your name" />
+    <input type="number" id="initialBalance" placeholder="Starting balance" />
+    <button onclick="createAccount()">Create Account</button>
+
+    <h2 id="greeting"></h2>
+    <p>Wallet Balance: ₹<span id="balance">0</span></p>
+
+    <input type="number" id="amount" placeholder="Amount" />
+    <button onclick="deposit()">Deposit</button>
+    <button onclick="withdraw()">Withdraw</button>
+
+    <h3>Transaction History</h3>
+    <ul id="history"></ul>
+
+    <h3>Generate Payment QR</h3>
+    <input type="number" id="qrAmount" placeholder="Enter amount to receive" />
+    <button onclick="generateQR()">Generate QR</button>
+    <canvas id="qrCode"></canvas>
+
+    <h3>Scan QR to Pay</h3>
+    <button onclick="startScanner()">Start Scanner</button>
+    <div id="reader"></div>
+
+    <h3>Recipient Log</h3>
+    <ul id="recipientLog"></ul>
+
+    <h3>Spending Overview</h3>
+    <canvas id="spendingChart" width="400" height="200"></canvas>
+  </div>
+
+  <script src="minipay.js"></script>
+</body>
+</html>
